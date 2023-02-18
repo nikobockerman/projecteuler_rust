@@ -1,6 +1,6 @@
 use std::env;
 
-const DEFAULT_PROBLEM: u32 = 23;
+const DEFAULT_PROBLEM: u32 = 24;
 
 fn main() {
     let args = env::args().collect::<Vec<String>>();
@@ -9,7 +9,8 @@ fn main() {
         .nth(1)
         .map_or(DEFAULT_PROBLEM, |s| s.parse::<u32>().unwrap())
     {
-        23 => projecteuler_rust::problem23::problem23(),
+        23 => projecteuler_rust::problem23::print(),
+        24 => projecteuler_rust::problem24::print(),
         _ => unreachable!(),
     }
 }
