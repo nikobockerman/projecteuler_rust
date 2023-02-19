@@ -88,7 +88,6 @@ fn solve() -> u32 {
     sum
 }
 
-pub fn print() {
-    let answer = solve();
-    println!("Answer: {}", answer);
+pub fn solve_str() -> String {
+    format!("{}", solve())
 }

@@ -52,7 +52,21 @@ fn solve() -> usize {
         .unwrap()
 }
 
-pub fn print() {
-    let answer = solve();
-    println!("Answer: {}", answer);
+#[cfg(test)]
+mod tests {
+    use super::FibonacciIter;
+
+    #[test]
+    fn fibonacci_start() {
+        let a = FibonacciIter::new()
+            .map(|x| u32::try_from(&x).unwrap())
+            .take(12)
+            .collect::<Vec<_>>();
+        let b = vec![1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144];
+        assert_eq!(a, b);
+    }
+}
+
+pub fn solve_str() -> String {
+    format!("{}", solve())
 }

@@ -76,7 +76,22 @@ fn solve() -> String {
     answer
 }
 
-pub fn print() {
-    let answer = solve();
-    println!("Answer: {}", answer);
+#[cfg(test)]
+mod tests {
+    use std::collections::BTreeSet;
+
+    use crate::problem24::OrderedArrangement;
+
+    #[test]
+    fn example() {
+        let a = OrderedArrangement::new(BTreeSet::from([0, 1, 2]));
+        let b = a
+            .map(|x| x.iter().map(|y| y.to_string()).collect::<String>())
+            .collect::<Vec<_>>();
+        assert_eq!(b, vec!["012", "021", "102", "120", "201", "210"]);
+    }
+}
+
+pub fn solve_str() -> String {
+    format!("{}", solve())
 }
